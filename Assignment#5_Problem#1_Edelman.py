@@ -48,3 +48,66 @@ class BasicMathOperations:
     def numType(self,num):
         num1=eval(num)
         return type(num1)
+def main():
+    # initalizing an instance of BasicMathOperations
+    BMO=BasicMathOperations()
+    # creating a while loop that runs while cont=True
+    cont=True
+    while cont == True:
+        BMO.GreetUser("Ben","Edelman")
+        print("""Welcome to the basic math operation calculator!
+Please enter the number of the function you would like to access.
+1.) Add Numbers
+2.) Perform Operation (A/S/M/D)
+3.) Square Number
+4.) Factorial
+5.) Counting
+6.) Compute Hypotenuse
+7.) Area of a Rectangle
+8.) Power of a Number
+9.) Type of Argument""")
+        ans=int(input())
+        # getting user input depending on what function the user wants to access, and calling the appropriate method
+        if ans == 1:
+            num1=float(input("Enter your first number: "))
+            num2=float(input("Enter your second number: "))
+            print(BMO.AddNumbers(num1,num2))
+        if ans == 2:
+            num1=float(input("Enter your first number: "))
+            num2=float(input("Enter your second number: "))
+            operator=input("Enter the operator you would like to use (A/S/M/D): ")
+            print(BMO.PerformOp(num1,num2,operator))
+        if ans == 3:
+            num1=float(input("Enter a number to calcualte its square: "))
+            print(BMO.calculateSquare(num1))
+        if ans == 4:
+            num1=int(input("Enter an integer to find the factorial of it: "))
+            print(BMO.factorial(num1))
+        if ans == 5:
+            num1=int(input("Enter an integer to start with: "))
+            num2=int(input("Enter an integer to end with: "))
+            print(BMO.count(num1,num2))
+        if ans == 6:
+            num1=float(input("Enter your first number: "))
+            num2=float(input("Enter your second number: "))
+            print(BMO.calcualteHypotenuse(num1,num2))
+        if ans == 7:
+            num1=float(input("Enter the width: "))
+            num2=float(input("Enter the height: "))
+            print(BMO.AoR(num1,num2))
+        if ans == 8:
+            num1=float(input("Enter the base: "))
+            num2=float(input("Enter the exponent: "))
+            print(BMO.PoN(num1,num2))
+        if ans == 9:
+            num=(input("Enter your number: "))
+            print(BMO.numType(num))
+        # asking if the user wants to use another function, if they do, the while loop continues. Otherwise, the program ends.
+        ans1=input("Do you want to use another function? Enter Y for Yes and N for No: ")
+        if ans1.upper()=="Y":
+            cont=True
+        if ans1.upper()=="N":
+            cont=False
+        else:
+            print("Please enter a valid answer")
+main()
